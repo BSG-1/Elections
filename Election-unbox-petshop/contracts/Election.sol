@@ -8,6 +8,6 @@ contract Election {
     
     //constructor run upon migration
     function Election () public {
-        candidate = "BSG"; //this is a state variable, accessible to all of contract
+        candidate = "BSG1"; //this is a state variable, accessible to all of contract
     }
 }
