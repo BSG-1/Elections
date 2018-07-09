@@ -19,11 +19,17 @@ contract Election {
 
     //constructor run upon migration
     function Election () public {
-    
+        //addCandidates get called when migrated and deployed;
+        addCandidate("BSG");
+        addCandidate("SSG");
     }
 
     function addCandidate (string _name) private {
+        //adds 1 to whatever number previously existed in the candidate's account; want it to represent the ID of the candidate that we're creating in this function
         candidatesCount ++; 
+        //here we access the 'candidates' variable that was created in the mapping function previously declared, and pass it the ID (candidatesCount) which was just increment; we then assign the value to the new Candidate, passing it an id of candidatesCount, a name, and an initial value of 0 vote counts
         candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
     }
+
+
 }
