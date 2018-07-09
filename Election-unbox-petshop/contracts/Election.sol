@@ -14,7 +14,7 @@ contract Election {
     mapping (uint => Candidate) public candidates;
     //keep track of vote counts for candidates
     //store candidates count
-    uint public candidatesCount; //counter-cache
+    uint public candidatesCount; //counter-cache --> this is done bc the mapping does not specify the exact count of how many candidates there are. Therefore, in order to make sure that each candidate gets their respective struct, and no default false values are rendered, a coutner cache is needed
 
     //constructor run upon migration
     function Election () public {
