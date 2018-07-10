@@ -41,7 +41,7 @@ contract Election {
         */
 
         //record that voter has voted
-        voters[msg.sender] = true; //ref the voters mapping and reading the account that has sent the vote, and then setting the value to true to show that it has in fact voted
+        voters[msg.sender] = true; //ref the voters mapping and reading the account that has sent the vote, and then setting the value to true to show that it has in fact voted 
 
         //update candidate vote Count
         candidates[_candidateId].voteCount++;
