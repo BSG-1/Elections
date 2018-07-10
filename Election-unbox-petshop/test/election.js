@@ -6,6 +6,8 @@ var Election = artifacts.require("./Election.sol");
 //declare the contract --> injects all the accounts that exist in our testing environment
 contract("Election", function (accounts) {
 
+    var electionInstance;
+
     //check to make sure contract was initialized with the correct number of candidates(should be 2)
     it("initializes with two candidates", function () {
         return Election.deployed().then(function (instance) {
