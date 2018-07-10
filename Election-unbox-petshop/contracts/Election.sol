@@ -31,5 +31,10 @@ contract Election {
         candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
     }
 
+    function vote (uint _candidateId) public {
+        //increase votecount of candidate that we want to vote for by reading the candidate out of the mapping function, and then increasing the voteCount variable out of the Canddiate Struct. 
+        //candidateId will be the uint key that was used in the candidates mapping that will RETURN a Candidate Struct
+        candidates[_candidateId] 
+    }
 
 }
