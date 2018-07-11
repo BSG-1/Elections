@@ -55,7 +55,7 @@ contract("Election", function (accounts) {
     it("throws an exception for invalidate candidates", function () {
         return Election.deployed().then(function (instance) {
             electionInstance = instance;
-            return electionInstance.vote(99, { from: accounts[1] })
+            return electionInstance.vote(99, { from: accounts[2] })
         }).then(assert.fail).catch(function (error) {
             assert(error.message.indexOf('revert') >= 0, "error message must contain revert");
             return electionInstance.candidates(1);
@@ -74,15 +74,16 @@ contract("Election", function (accounts) {
         return Election.deployed().then(function (instance) {
             electionInstance = instance;
             candidateId = 2;
-            electionInstance.vote(candidateId, { from: accounts[1] });
+            electionInstance.vote(candidateId, { from: accounts[2] });
             return electionInstance.candidates(candidateId);
         }).then(function (candidate) {
             var voteCount = candidate[2];
             assert.equal(voteCount, 1, "accepts first vote");
             // Try to vote again
             return electionInstance.vote(candidateId, { from: accounts[1] });
-        }).then(assert.fail).catch(function (error) {
-            assert(error.message.indexOf('revert') >= 0, "error message must contain revert"); /////CURRENT PROBLEM
+        }).then(function (receipt) {
+            //assert(error.message.indexOf('revert') >= 0, "error message must contain revert"); /////CURRENT PROBLEM
+            assert.equal(receipt.receipt.status, "0x00", "failed tx");
             return electionInstance.candidates(1);
         }).then(function (candidate1) {
             var voteCount = candidate1[2];
