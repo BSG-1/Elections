@@ -34,7 +34,7 @@ contract Election {
 
     function vote (uint _candidateId) public {
         /*
-        1. increase votecount of candidate that we want to vote for by reading the candidate out of the mapping function, and then increasing the voteCount variable out of the Canddiate Struct. 
+        1. increase votecount of candidate that we want to vote for (a valid candidate) by reading the candidate out of the mapping function, and then increasing the voteCount variable out of the Canddiate Struct. 
             a) candidateId will be the uint key that was used in the candidates mapping that will RETURN a Candidate Struct
         2. Record that a voter has voted (1 time, 1 vote) 
             a) how do we even know which account is voting when you call the vote function? Solidity gives us the account via who is doing the calling (msg.sender --> account from which voter is voting)
