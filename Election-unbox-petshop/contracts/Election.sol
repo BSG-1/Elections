@@ -43,6 +43,7 @@ contract Election {
         2. increase votecount of candidate that we want to vote for (a valid candidate) by reading the candidate out of the mapping function, and then increasing the voteCount variable out of the Canddiate Struct. 
             a) candidateId will be the uint key that was used in the candidates mapping that will RETURN a Candidate Struct
         */
+        require(_candidateId > 0 && _candidateId <= candidatesCount);
 
         //record that voter has voted
         voters[msg.sender] = true; //ref the voters mapping and reading the account that has sent the vote, and then setting the value to true to show that it has in fact voted 
