@@ -79,7 +79,7 @@ contract("Election", function (accounts) {
         }).then(function (candidate) {
             var voteCount = candidate[2];
             assert.equal(voteCount, 1, "accepts first vote");
-            //Now try to vote again
+            // Try to vote again
             return electionInstance.vote(candidateId, { from: accounts[1] });
         }).then(assert.fail).catch(function (error) {
             assert(error.message.indexOf('revert') >= 0, "error message must contain revert");
@@ -88,7 +88,7 @@ contract("Election", function (accounts) {
             var voteCount = candidate1[2];
             assert.equal(voteCount, 1, "candidate 1 did not receive any votes");
             return electionInstance.candidates(2);
-        }).then(function (candidates2) {
+        }).then(function (candidate2) {
             var voteCount = candidate2[2];
             assert.equal(voteCount, 1, "candidate 2 did not receive any votes");
         });
