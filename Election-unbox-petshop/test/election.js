@@ -94,4 +94,9 @@ contract("Election", function (accounts) {
             assert.equal(voteCount, 1, "candidate 2 did not receive any votes");
         });
     });
+
+    //nextOne
+    it("next exception", function () {
+
+    })
 });
