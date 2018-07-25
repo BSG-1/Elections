@@ -74,7 +74,7 @@ contract("Election", function (accounts) {
         return Election.deployed().then(function (instance) {
             electionInstance = instance;
             candidateId = 2;
-            electionInstance.vote(candidateId, { from: accounts[2] });
+            electionInstance.vote(candidateId, { from: accounts[1] });
             return electionInstance.candidates(candidateId);
         }).then(function (candidate) {
             var voteCount = candidate[2];
